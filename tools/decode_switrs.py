@@ -93,6 +93,15 @@ MOVEMENT_CODES = {
     'R': 'Other',
     '-': 'Not Stated'
 }
+DAY_OF_WEEK = {
+    '1' : 'Monday'
+    '2' : 'Tuesday'
+    '3' : 'Wednesday'
+    '4' : 'Thursday'
+    '5' : 'Friday'
+    '6' : 'Saturday'
+    '7' : 'Sunday'
+}
 
 # Master dictionary mapping column names to their codebook
 # You can add more columns here as you define them
@@ -104,10 +113,9 @@ MASTER_MAP = {
     'ROAD_SURFACE': ROAD_SURFACE_CODES,
     'LIGHTING': LIGHTING_CODES,
     'PCF_VIOL_CATEGORY': PCF_CODES,
-    'MVIW': MOVEMENT_CODES  # Motor Vehicle Involved With
+    'DAY_OF_WEEK': DAY_OF_WEEK,
+    'MVIW': MOVEMENT_CODES  
 }
-
-
 
 def decode_switrs(df, create_new_columns=True):
     """
@@ -120,6 +128,7 @@ def decode_switrs(df, create_new_columns=True):
             #numeric codes
             if col != 'COLLISION_SEVERITY':
                  df_decoded[col] = df_decoded[col].astype(str).str.strip()
+
             if create_new_columns:
                 new_col_name = f"{col}_DESC"
                 # Map the values, filling unknown ones with the original value or 'Unknown'
