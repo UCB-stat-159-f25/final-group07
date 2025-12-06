@@ -23,6 +23,7 @@ dependencies:
   - certifi=2025.11.12=pyhd8ed1ab_0
   - colorama=0.4.6=pyhd8ed1ab_1
   - comm=0.2.3=pyhe01879c_0
+  - contextily=1.7.0
   - contourpy=1.3.3=py311hdf67eae_3
   - cycler=0.12.1=pyhcf101f3_2
   - cyrus-sasl=2.1.28=hd9c7081_0
@@ -175,12 +176,12 @@ dependencies:
   - readline=8.2=h8c095d6_2
   - referencing=0.37.0=pyhcf101f3_0
   - rpds-py=0.30.0=py311h902ca64_0
+  - scikitlearn=1.7.0
   - scipy=1.13.1=py311h517d4fd_0
   - seaborn=0.13.2=hd8ed1ab_3
   - seaborn-base=0.13.2=pyhd8ed1ab_3
   - setuptools=80.9.0=pyhff2d567_0
   - six=1.17.0=pyhe01879c_1
-  - sklearn=1.7
   - soupsieve=2.8=pyhd8ed1ab_0
   - stack_data=0.6.3=pyhd8ed1ab_1
   - statsmodels=0.14.5=py311h0372a8f_1
