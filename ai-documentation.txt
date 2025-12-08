@@ -11,7 +11,32 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 ######################################################
 Atiila
 #######################################################
+Q: How to create a kernel from an env called final
+A: Here’s the clean way to do it — quick, no clutter.
 
+### 1. Activate your conda env
+
+```bash
+conda activate final
+```
+
+### 2. Install the kernel package inside the env
+
+```bash
+python -m ipykernel install --user --name final --display-name "Python (final)"
+```
+
+### 3. Open Jupyter / JupyterLab
+
+You’ll now see **Python (final)** as a selectable kernel.
+
+### To remove it (if needed)
+
+```bash
+jupyter kernelspec uninstall final
+```
+
+This is all you need to turn any conda environment into a selectable Jupyter kernel.
 
 
 
