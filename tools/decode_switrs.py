@@ -1,9 +1,7 @@
 import pandas as pd
 
-# --- SWITRS CODEBOOKS ---
-# Based on California SWITRS documentation
+#SWITRS code documentation: https://tims.berkeley.edu/help/SWITRS.php
 
-# A - Weather
 WEATHER_CODES = {
     'A': 'Clear',
     'B': 'Cloudy',
@@ -62,8 +60,8 @@ LIGHTING_CODES = {
     '-': 'Not Stated'
 }
 
-# Primary Collision Factor (PCF)
-PCF_CODES = {
+# Primary Collision Factor (PCF) 
+PC_CODES = {
     'A': 'VC Section Violation',
     'B': 'Other Improper Driving',
     'C': 'Other Than Driver',
@@ -71,6 +69,36 @@ PCF_CODES = {
     'E': 'Fell Asleep',
     '-': 'Not Stated'
 }
+
+PCF_VIOL_CODES = {
+    '01': 'Driving or Bicycling Under the Influence of Alcohol or Drug',
+    '02': 'Impeding Traffic',
+    '03': 'Unsafe Speed',
+    '04': 'Following Too Closely',
+    '05': 'Wrong Side of Road',
+    '06': 'Improper Passing',
+    '07': 'Unsafe Lane Change',
+    '08': 'Improper Turning',
+    '09': 'Automobile Right of Way',
+    '10': 'Pedestrian Right of Way',
+    '11': 'Pedestrian Violation',
+    '12': 'Traffic Signals and Signs',
+    '13': 'Hazardous Parking',
+    '14': 'Lights',
+    '15': 'Brakes',
+    '16': 'Other Equipment',
+    '17': 'Other Hazardous Violation',
+    '18': 'Other Than Driver (or Pedestrian)',
+    '19': None, #empty
+    '20': None, #empty
+    '21': 'Unsafe Starting or Backing',
+    '22': 'Other Improper Driving',
+    '23': 'Pedestrian or "Other" Under the Influence of Alcohol or Drug',
+    '24': 'Fell Asleep',
+    '00': 'Unknown',
+    '-': 'Not Stated'
+}
+
 
 # Movement Preceding Collision
 MOVEMENT_CODES = {
@@ -103,8 +131,10 @@ DAY_OF_WEEK = {
     '7' : 'Sunday'
 }
 
-# Master dictionary mapping column names to their codebook
-# You can add more columns here as you define them
+
+
+
+# Map column names to their code dictionary
 MASTER_MAP = {
     'WEATHER_1': WEATHER_CODES,
     'WEATHER_2': WEATHER_CODES,
@@ -112,14 +142,23 @@ MASTER_MAP = {
     'TYPE_OF_COLLISION': COLLISION_TYPE_CODES,
     'ROAD_SURFACE': ROAD_SURFACE_CODES,
     'LIGHTING': LIGHTING_CODES,
-    'PCF_VIOL_CATEGORY': PCF_CODES,
+    'PRIMARY_COLL_FACTOR': PC_CODES,
+    'PCF_VIOL_CATEGORY': PCF_VIOL_CODES,
     'DAY_OF_WEEK': DAY_OF_WEEK,
     'MVIW': MOVEMENT_CODES  
 }
 
 def decode_switrs(df, create_new_columns=True):
     """
-    explain here
+    Creates new column with decoded inputs from SWITRS codebook
+
+    Parameters: 
+      df (DataFrame) : Dataframe with columns that need decoding
+      create_new_columns (bool) : Bool on whether to overwrite or create new columns
+
+    Return:
+      df (Dataframe) : dataframe with appended decoded columns [{col}'_DESC']
+    
     """
     df_decoded = df.copy()
     
