@@ -1,0 +1,17 @@
+# Data Access and Restrictions
+
+This project uses traffic crash data obtained from the California
+Transportation Injury Mapping System (TIMS), maintained by the
+University of California and Caltrans.
+
+The TIMS data is subject to federal and state legal restrictions,
+including but not limited to 23 U.S.C. § 409 and California Vehicle
+Code § 20014. As a result, the raw data **cannot be redistributed**
+and is **not included in this repository**.
+
+Access to TIMS data requires user agreement with the terms provided
+on the TIMS website.
+
+Users wishing to reproduce this analysis must obtain TIMS data
+directly from:
+https://tims.berkeley.edu/
