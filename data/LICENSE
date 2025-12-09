@@ -6,12 +6,10 @@ University of California and Caltrans.
 
 The TIMS data is subject to federal and state legal restrictions,
 including but not limited to 23 U.S.C. § 409 and California Vehicle
-Code § 20014. As a result, the raw data **cannot be redistributed**
-and is **not included in this repository**.
+Code § 20014. As a result, the raw data is distributed inside this repository.
+All users using this data are automatically subject to the "Terms of Use" agreement
+that comes with downloading this data from the TIMS website.
 
-Access to TIMS data requires user agreement with the terms provided
-on the TIMS website.
-
-Users wishing to reproduce this analysis must obtain TIMS data
+Users wishing to reproduce this analysis may obtain TIMS data
 directly from:
 https://tims.berkeley.edu/
