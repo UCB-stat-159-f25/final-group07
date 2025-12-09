@@ -1,0 +1,5 @@
+tools.egg-info/
+build/
+
+# MyST build outputs
+_build
