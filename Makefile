@@ -8,7 +8,7 @@ clean :
 	rm -rf _build
 	rm -rf build
 	rm -rf tools.egg-info
-    pip uninstall tools -y
+	pip uninstall tools -y
 
 
 ## env               : Create or update environment.yml
@@ -27,8 +27,8 @@ html :
 ## all               : Execute notebooks
 .PHONY : all
 all :
-    pip install .
-	jupyter nbconvert --to notebook --execute *.ipynb
+	pip install .
+	jupyter nbconvert --to notebook --execute --inplace *.ipynb
 
 
 ## help              : Show help
