@@ -2,6 +2,8 @@
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-f25/final-group07/HEAD?urlpath=%2Fdoc%2Ftree%2Fmain.ipynb)
 
+Link to MyST Deployment: [MyST Deployment](https://ucb-stat-159-f25.github.io/final-group07/)
+
 # TIMS Fatal Crash Analysis
 
 ## Overview & Motivation
@@ -32,6 +34,8 @@ make all
 
 This installs the local project package and executes all Jupyter notebooks.
 
+---
+
 ### Build HTML Documentation
 
 To generate the HTML report using MyST:
@@ -42,6 +46,8 @@ make html
 
 The output will be available in the `_build/` directory.
 
+---
+
 ## Cleaning Generated Files
 
 Remove all generated outputs and build artifacts:
@@ -49,6 +55,7 @@ Remove all generated outputs and build artifacts:
 ```bash
 make clean
 ```
+---
 
 ## Automation & Help
 
@@ -57,11 +64,14 @@ To view all available Makefile commands:
 ```bash
 make help
 ```
+---
 
 ## Requirements
 - Conda
 - Bash-compatible shell
 - MyST for HTML documentation generation
+
+---
 
 ## Notes
 This project is designed for reproducible, automated data analysis using Conda, Make, and Jupyter notebooks.
