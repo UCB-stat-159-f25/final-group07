@@ -145,7 +145,8 @@ MASTER_MAP = {
     'PRIMARY_COLL_FACTOR': PC_CODES,
     'PCF_VIOL_CATEGORY': PCF_VIOL_CODES,
     'DAY_OF_WEEK': DAY_OF_WEEK,
-    'MVIW': MOVEMENT_CODES  
+    'MVIW': MOVEMENT_CODES
+   
 }
 
 def decode_switrs(df, create_new_columns=True):
