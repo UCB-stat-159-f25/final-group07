@@ -1,4 +1,5 @@
 # See docs at: https://mystmd.org/guide/frontmatter
+
 version: 1
 project:
   id: bfc568b1-ae59-458b-9001-51da5334e0d7
@@ -30,9 +31,9 @@ project:
     
 site:
   template: book-theme
-  # options:
-  #   favicon: favicon.ico
-  #   logo: site_logo.png
+  options:
+    favicon: bikecrash2.png
+    logo: bikecrash2.png
 
 
 

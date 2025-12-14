@@ -4,7 +4,7 @@
 
 Link to MyST Deployment: [MyST Deployment](https://ucb-stat-159-f25.github.io/final-group07/)
 
-# TIMS Fatal Crash Analysis
+# TIMS Bicycle Crash Analysis
 
 ## Overview & Motivation
 This project analyzes **TIMS (Traffic Information Management System) data** related to **fatal traffic crashes**. The motivation behind this project is to better understand patterns and trends in fatal crashes, with a particular emphasis on **geographical clustering**. Identifying spatial patterns can help highlight high-risk locations and support traffic safety planning and policy decision-making.

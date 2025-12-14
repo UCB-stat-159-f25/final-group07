@@ -7,6 +7,8 @@ import contextily as ctx
 import matplotlib.patches as mpatches
 from math import radians
 import numpy as np
+import os
+os.makedirs("figures", exist_ok=True)
 
 ###############################################################################
 ###################### Crash Clusters Visualization ###########################
@@ -140,6 +142,10 @@ def plot_crash_clusters(gdf_input, severity=None, year=None, eps_meters=100, min
     ax.set_axis_off()
     plt.title(f"Crash Density Map (KDE) with DBSCAN Clusters - {title_suffix}")
     plt.show()
+    plt.savefig(
+        f"figures/crash_clusters_{title_suffix.replace(' ', '_')}.png",
+        dpi=300,
+        bbox_inches="tight")
 
     return gdf
 
@@ -234,3 +240,8 @@ def plot_top_roads_bar(gdf_input, top_n=10, severity=None, year=None, title_suff
     
     plt.tight_layout()
     plt.show()
+	
+    plt.savefig(
+        f"figures/top_roads_{title_suffix.replace(' ', '_')}.png",
+        dpi=300,
+        bbox_inches="tight")
