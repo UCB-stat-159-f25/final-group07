@@ -165,7 +165,7 @@ def decode_switrs(df):
     
     for col, mapping in MASTER_MAP.items():
         if col in df_decoded.columns:
-            #numeric codes
+            #non numeric keys
             if col != 'COLLISION_SEVERITY':
                  df_decoded[col] = df_decoded[col].astype(str).str.strip()
             #create columns description
