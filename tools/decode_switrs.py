@@ -149,7 +149,7 @@ MASTER_MAP = {
    
 }
 
-def decode_switrs(df, create_new_columns=True):
+def decode_switrs(df):
     """
     Creates new column with decoded inputs from SWITRS codebook
 
@@ -168,14 +168,9 @@ def decode_switrs(df, create_new_columns=True):
             #numeric codes
             if col != 'COLLISION_SEVERITY':
                  df_decoded[col] = df_decoded[col].astype(str).str.strip()
-
-            if create_new_columns:
-                new_col_name = f"{col}_DESC"
-                # Map the values, filling unknown ones with the original value or 'Unknown'
-                df_decoded[new_col_name] = df_decoded[col].map(mapping).fillna(df_decoded[col])
-                print(f"Created decoded column: {new_col_name}")
-            else:
-                df_decoded[col] = df_decoded[col].map(mapping).fillna(df_decoded[col])
-                print(f"Overwrote column with descriptions: {col}")
-                
+            #create columns description
+            new_col_name = f"{col}_DESC"
+            df_decoded[new_col_name] = df_decoded[col].map(mapping).fillna(df_decoded[col])
+            print(f"Created decoded column: {new_col_name}")
+           
     return df_decoded
