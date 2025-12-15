@@ -27,7 +27,7 @@ html :
 ## all               : Execute notebooks
 .PHONY : all
 all :
-	pip install .
+	python -m pip install -e .
 	jupyter nbconvert --to notebook --execute --inplace *.ipynb
 
 
@@ -35,3 +35,11 @@ all :
 .PHONY : help
 help : Makefile
 	@sed -n 's/^##//p' $<
+
+## test              : Run pytest
+.PHONY : test
+test :
+	source /srv/conda/etc/profile.d/conda.sh
+	conda activate notebook
+	python -m pip install -e .
+	python -m pytest .

@@ -57,6 +57,15 @@ make clean
 ```
 ---
 
+## Run Unit Tests
+
+Run all the necessary unit tests for utility libaries.
+
+```bash
+make test
+```
+---
+
 ## Automation & Help
 
 To view all available Makefile commands:
