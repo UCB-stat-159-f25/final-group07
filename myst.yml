@@ -30,7 +30,7 @@ project:
     - file: data_exploration.ipynb
     - file: KDE_saveas.ipynb
     - file: Modelling.ipynb
-    
+
 site:
   template: book-theme
   options:

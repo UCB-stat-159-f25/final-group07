@@ -8,6 +8,79 @@ Try using .loc[row_indexer,col_indexer] = value instead
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   crashes_clean['geometry'] = crashes_clean.apply(
 
+Q: Why is my crash map doing this? (Image of the entire world)
+A: Ah — I see what’s happening from the screenshot. That “flattened world map” effect usually happens when your gdf bounds are tiny in latitude/longitude but you haven’t properly reprojected for the KDE, or when your coordinates are very small values (like near 0) in projected space, causing the meshgrid to stretch globally.
+
+Most likely causes in your case:
+
+Not using the projected coordinates for KDE correctly
+
+The KDE grid and pcolormesh are in Web Mercator (EPSG:3857), but if the coordinates you fed in are still in degrees (POINT_X, POINT_Y), the grid spans almost the entire world (since degrees are tiny numbers relative to meters).
+
+total_bounds might be giving tiny values
+
+If the gdf wasn’t reprojected yet, total_bounds will be in degrees and very small, but np.mgrid[xmin:xmax:nbins*1j, ymin:ymax:nbins*1j] expects larger numeric ranges for proper plotting.
+
+Make sure you reproject before creating the grid and KDE:
+
+# 1. Create GeoDataFrame in WGS84
+gdf = gpd.GeoDataFrame(crashes, geometry=gpd.points_from_xy(crashes['POINT_X'], crashes['POINT_Y']), crs='EPSG:4326')
+
+# 2. Reproject to meters (Web Mercator)
+gdf = gdf.to_crs(epsg=3857)
+
+Q: Why is the legend not showing up in order?
+A:1️⃣ Move fig, ax to the top of visualization
+fig, ax = plt.subplots(figsize=(10, 8))
+
+2️⃣ Plot KDE and noise first
+ax.pcolormesh(xi, yi, zi, shading='auto', cmap='viridis', alpha=0.35)
+
+gdf_noise = gdf[gdf['cluster'] == -1]
+gdf_noise.plot(
+    ax=ax,
+    color='lightgrey',
+    markersize=15,
+    alpha=0.25,
+    edgecolor='none'
+)
+
+3️⃣ Plot clusters in numeric order
+legend_handles = []
+
+for i, c in enumerate(cluster_ids):
+    gdf_c = gdf[gdf['cluster'] == c]
+
+    gdf_c.plot(
+        ax=ax,
+        color=colors[i],
+        markersize=20,
+        alpha=0.9,
+        edgecolor='black',
+        linewidth=0.5
+    )
+
+    legend_handles.append(
+        mpatches.Patch(color=colors[i], label=f"Cluster {c}")
+    )
+
+4️⃣ Add legend manually
+ax.legend(
+    handles=legend_handles,
+    title="DBSCAN Crash Clusters",
+    fontsize=9,
+    loc="center left",
+    bbox_to_anchor=(1.25, 0.5)
+)
+
+5️⃣ ❌ DELETE this entire block
+gdf_clusters.plot(
+    column='cluster_label',
+    legend=True,
+    categorical=True,
+    ...
+)
+
 ######################################################
 Atiila
 #######################################################
