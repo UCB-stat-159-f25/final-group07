@@ -82,5 +82,17 @@ make help
 
 ---
 
+## Data and Methods
+
+This project uses traffic collision data from the Transportation Injury Mapping
+System (TIMS) at UC Berkeley, which is derived from the California Statewide
+Integrated Traffic Records System (SWITRS).
+
+We analyze spatial crash patterns using Kernel Density Estimation (KDE) and
+DBSCAN clustering, and build predictive models using Random Forests. The analysis
+is implemented in Python using pandas, NumPy, GeoPandas, and scikit-learn.
+
+---
+
 ## Notes
 This project is designed for reproducible, automated data analysis using Conda, Make, and Jupyter notebooks.
