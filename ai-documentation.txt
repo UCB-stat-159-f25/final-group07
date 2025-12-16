@@ -117,8 +117,8 @@ This is all you need to turn any conda environment into a selectable Jupyter ker
 Reily
 ########################################################
 
-
-
+- Gave the SWITRS code and had it create the dictionaries in python rather than hand typing, it advised to make the master_map dictionary
+- Debugging support for sns graphing in the date-time categories
 
 
 

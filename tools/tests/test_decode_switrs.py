@@ -9,11 +9,11 @@ DATA_PATH = REPO_ROOT / "data" / "Crashes.csv"
 
 def test_loaddata():
     crashes = pd.read_csv(DATA_PATH)
-    assert crashes.shape[0] == 5094
+    assert crashes.shape == (5094, 80)
 
 def test_decode():
     crashes = pd.read_csv(DATA_PATH)
-    df_clean = decode_switrs(crashes, create_new_columns=True)
+    df_clean = decode_switrs(crashes)
     assert df_clean.shape == (5094, 90)
 
     
