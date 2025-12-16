@@ -111,8 +111,23 @@ jupyter kernelspec uninstall final
 
 This is all you need to turn any conda environment into a selectable Jupyter kernel.
 
+QN:
+How do I cite this in the notebook markdown cell? @article{Scarano2023,
+  title   = {Injury severity prediction of cyclist crashes using random forests and random parameters logit models},
+  author  = {Scarano, Antonella and Rella Riccardi, Maria and Mauriello, Filomena and D'Agostino, Carmelo and Pasquino, Nicola and Montella, Alfonso},
+  journal = {Accident Analysis \& Prevention},
+  volume  = {192},
+  pages   = {107275},
+  year    = {2023},
+  doi     = {10.1016/j.aap.2023.107275}
+}
 
+Response:
+In a Markdown cell, use the citation syntax your build supports:
 
+MyST/Markdown (via mystmd): …similar to {cite}Scarano2023.
+Plain LaTeX-style (if supported): …similar to \cite{Scarano2023}.
+Either way, ensure references.bib is included in the build so Scarano2023 resolves.
 ########################################################
 Reily
 ########################################################
