@@ -34,8 +34,8 @@ project:
 site:
   template: book-theme
   options:
-    favicon: bikecrash2.png
-    logo: bikecrash2.png
+    favicon: bikecrashimage.jpg
+    logo: bikecrashimage.jpg
 
 
 
