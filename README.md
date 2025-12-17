@@ -4,6 +4,8 @@
 
 Link to MyST Deployment: [MyST Deployment](https://ucb-stat-159-f25.github.io/final-group07/)
 
+Link to DOI: [![DOI](https://zenodo.org/badge/1104356580.svg)](https://doi.org/10.5281/zenodo.17960786)
+
 # TIMS Bicycle Crash Analysis
 
 ## Overview & Motivation
